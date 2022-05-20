@@ -91,7 +91,7 @@ static void CreateVertexBuffer()
     Vertices[0] = Vector3f(-1.0f, -1.0f, 0.5773f);
     Vertices[1] = Vector3f(0.0f, -1.0f, -1.15475);
     Vertices[2] = Vector3f(1.0f, -1.0f, 0.5773f);
-    Vertices[3] = Vector3f(0.0f, 1.0f, 0.0f);
+    Vertices[3] = Vector3f(0.0f, 1.0f, 0.0f); 
 
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
