@@ -24,6 +24,9 @@
     <ClCompile Include="pipeline.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile">
@@ -35,6 +38,9 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="pipeline.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>

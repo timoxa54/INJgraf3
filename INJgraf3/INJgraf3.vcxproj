@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="INJgraf3.cpp" />
     <ClCompile Include="math_3d.cpp" />
     <ClCompile Include="pipeline.cpp" />
@@ -147,6 +148,7 @@
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="camera.h" />
     <ClInclude Include="math_3d.h" />
     <ClInclude Include="pipeline.h" />
   </ItemGroup>

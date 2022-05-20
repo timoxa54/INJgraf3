@@ -4,8 +4,8 @@
 #include <math.h>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
-
 #include "pipeline.h"
+#include "camera.h"
 
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 768
@@ -14,6 +14,7 @@ GLuint VBO;
 GLuint IBO;
 GLuint gWVPLocation;
 
+Camera GameCamera;
 
 static const char* pVS = "                                                          \n\
 #version 330                                                                        \n\
@@ -53,10 +54,7 @@ static void RenderSceneCB()
     Pipeline p;
     p.Rotate(0.0f, Scale, 0.0f);
     p.WorldPos(0.0f, 0.0f, 3.0f);
-    Vector3f CameraPos(0.0f, 0.0f, -3.0f);
-    Vector3f CameraTarget(0.0f, 0.0f, 2.0f);
-    Vector3f CameraUp(0.0f, 1.0f, 0.0f);
-    p.SetCamera(CameraPos, CameraTarget, CameraUp);
+    p.SetCamera(GameCamera.GetPos(), GameCamera.GetTarget(), GameCamera.GetUp());
     p.SetPerspectiveProj(60.0f, WINDOW_WIDTH, WINDOW_HEIGHT, 1.0f, 100.0f);
 
     glUniformMatrix4fv(gWVPLocation, 1, GL_TRUE, (const GLfloat*)p.GetTrans());
@@ -74,11 +72,17 @@ static void RenderSceneCB()
 }
 
 
+static void SpecialKeyboardCB(int Key, int x, int y)
+{
+    GameCamera.OnKeyboard(Key);
+}
+
 
 static void InitializeGlutCallbacks()
 {
     glutDisplayFunc(RenderSceneCB);
     glutIdleFunc(RenderSceneCB);
+    glutSpecialFunc(SpecialKeyboardCB);
 }
 
 static void CreateVertexBuffer()
@@ -176,7 +180,7 @@ int main(int argc, char** argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow("Tutorial 13");
+    glutCreateWindow("Tutorial 14");
 
     InitializeGlutCallbacks();
 
