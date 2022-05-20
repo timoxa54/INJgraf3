@@ -17,7 +17,7 @@ Vector3f& Vector3f::Normalize()
 
     x /= Length;
     y /= Length;
-    z /= Length;
+    z /= Length; 
 
     return *this;
 }

@@ -74,6 +74,7 @@ static void RenderSceneCB()
 }
 
 
+
 static void InitializeGlutCallbacks()
 {
     glutDisplayFunc(RenderSceneCB);
